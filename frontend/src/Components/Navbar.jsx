@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <div>
       <header className="bg-white py-5 lg:px-20 shadow-md sticky top-0 z-10 flex justify-center">
-        <div className="flex flex-col md:flex-row justify-between w-full items-center">
+        <div className="flex flex-col lg:flex-row justify-between w-full items-center">
           <div className="font-bold text-lg flex items-center">
             <img src={logo} alt="" className="h-[50px]" />
             <div className="flex flex-col ml-2">

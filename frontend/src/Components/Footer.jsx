@@ -1,75 +1,80 @@
-import React from 'react'
+import React from "react";
 
 function Footer() {
   return (
-    <div>
-      <footer className="px-4 md:px-8 lg:px-12 py-16 bg-black h-[450px]">
-        <div className="flex justify-between ">
-          <div className="flex flex-col ">
-            <div className="flex flex-row space-x-3">
-              <img src="../logo.jpg" alt="" className="h-[40px] bg-black " />
-              <p className="text-white  font-bold text-2xl">
-                {" "}
-                TRANQUILITY MULTIPURPOSE <br />
-                COOPERATIVE SOCIETY LTD
-              </p>
-            </div>
-            <p className="text-white text-xl mt-20">
-              Subscribe to our newsletter
-            </p>
-            <div className="mt-4">
-              <button className="bg-white rounded-full shadow-2xl w-80 py-3 px-5 mt-3 text-left flex items-center justify-between">
-                <span>Enter your email </span>
-                <div className="bg-blue-300 h-10 w-10 rounded-full">
-                  <i className="fas fa-arrow-right text-black ml-2 text-xl rotate-[-50deg]  flex items-center "></i>
-                </div>
-              </button>
-            </div>
+    <footer className="bg-black text-white px-4 md:px-8 lg:px-16 py-12">
+      <div className="container mx-auto grid gap-8 lg:grid-cols-4">
+        {/* Logo and Newsletter */}
+        <div>
+          <div className="flex items-center mb-6">
+            <h1 className="text-2xl font-bold leading-tight">
+              TRANQUILITY MULTIPURPOSE <br />
+              COOPERATIVE SOCIETY LTD
+            </h1>
           </div>
-          <div className="flex flex-col md:flex-row items-center mb-40">
-            <div className="mb-2 md:mb-0 md:mr-10">
-              <h3 className="font-bold mb-2 text-white">LENDING</h3>
-              <ul className="text-white">
-                <li>SMALL BUSINESS</li>
-                <li>STARTUP</li>
-                <li>ENTERPRISES</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mb-6 md:mb-0 md:mr-10">
-            <h3 className="font-bold  text-white">ABOUT</h3>
-            <ul className="text-white">
-              <li>OUR STORY</li>
-              <li>CAREERS</li>
-              <li>NEWS</li>
-              <li>INVESTORS</li>
-            </ul>
-          </div>
-          <div className="mb-6 md:mb-0 md:mr-10 text-white">
-            <h3 className="font-bold mb-2">RESOURCES</h3>
-            <ul className="text-white">
-              <li>ACCESSIBILITY</li>
-              <li>PRIVACY POLICY</li>
-              <li>LEGAL</li>
-              <li>HELP CENTRE</li>
-            </ul>
-          </div>
+          <p className="text-lg mb-4">Subscribe to our newsletter</p>
           <div className="relative">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="w-full py-3 px-4 rounded-full bg-white text-black shadow-md focus:outline-none"
+            />
+            <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white h-10 w-10 rounded-full flex items-center justify-center">
+              <i className="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        {/* Lending Links */}
+        <div>
+          <h3 className="font-bold text-xl mb-4">LENDING</h3>
+          <ul className="space-y-2">
+            <li>Small Business</li>
+            <li>Startup</li>
+            <li>Enterprises</li>
+          </ul>
+        </div>
+
+        {/* About Links */}
+        <div>
+          <h3 className="font-bold text-xl mb-4">ABOUT</h3>
+          <ul className="space-y-2">
+            <li>Our Story</li>
+            <li>Careers</li>
+            <li>News</li>
+            <li>Investors</li>
+          </ul>
+        </div>
+
+        {/* Resources Links */}
+        <div>
+          <h3 className="font-bold text-xl mb-4">RESOURCES</h3>
+          <ul className="space-y-2">
+            <li>Accessibility</li>
+            <li>Privacy Policy</li>
+            <li>Legal</li>
+            <li>Help Centre</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Footer Bottom */}
+      <div className="mt-12">
+        <hr className="border-gray-600 mb-6" />
+        <div className="flex flex-col md:flex-row md:justify-between items-center">
+          <p className="text-sm text-center md:text-left">
+            © 2024 TRANQUILITY MULTIPURPOSE COOPERATIVE SOCIETY LTD. All rights
+            reserved.
+          </p>
+          <div className="mt-4 md:mt-0">
             <button className="bg-white text-black py-2 px-4 rounded-full flex items-center">
               English <i className="fas fa-chevron-down ml-2"></i>
             </button>
           </div>
         </div>
-        <div className="container mt-10 text-center">
-          <hr className="border-gray-600 mb-4" />
-          <p className="text-sm text-white">
-            All rights reserved 2024@TRANQUILITY MULTIPURPOSE COOPERATIVE
-            SOCIETY LTD
-          </p>
-        </div>
-      </footer>
-    </div>
-  )
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

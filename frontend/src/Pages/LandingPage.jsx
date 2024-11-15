@@ -2,10 +2,16 @@ import React from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 // import { Link } from "react-router-dom";
-import { FaChevronRight } from "react-icons/fa";
+import {
+  FaChevronRight,
+  FaWifi,
+  FaWallet,
+  FaCreditCard,
+  FaHandHoldingUsd,
+  FaPiggyBank,
+} from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
 import { BsArrowRight } from "react-icons/bs";
-import { FaWifi } from "react-icons/fa";
 
 // Images
 import smiling from "../Assets/smiling.png";
@@ -86,7 +92,7 @@ const LandingPage = () => {
             </div>
 
             {/* <!-- Statistics Card --> */}
-            <div class="w-full max-w-xs md:absolute md:-top-6 md:-right-[350px] lg:static " >
+            <div class="w-full max-w-xs md:absolute md:-top-6 md:-right-[350px] lg:static ">
               <div class="bg-blue-300 p-6 rounded-xl flex flex-col items-center text-center">
                 <h1 class="font-bold text-4xl text-black">900K</h1>
                 <p class="text-black font-bold">HAPPY</p>
@@ -97,53 +103,49 @@ const LandingPage = () => {
         </div>
 
         {/* Browse our set of banking service and offerings */}
-        <div class="px-4 py-20 flex space-x-2 ">
-          <div class="h-[500px] w-[1500px] bg-gray-300 rounded-xl px-24 py-24 flex-col">
-            <div class="flex items-center space-x-10 flex-wrap">
-              <div class="mr-20">
-                <p class="text-4xl font-bold">Browse our set of</p>
-                <p class="text-4xl font-bold">banking service and</p>
-                <p class="text-4xl font-bold">offerings</p>
+        <div class="bg-gray-300 px-4 py-20 lg:px-20 lg:py-28 flex justify-center items-center ">
+          <div class="grid lg:grid-cols-2 gap-10 items-center">
+            <div className="space-y-6">
+              <p class="text-4xl font-bold">
+                Browse our set of banking service and offerings
+              </p>
+              <p class="text-sm mt-5">
+                We offer a variety of tools and resources to help you manage
+                your finances more efficiently
+              </p>
+
+              <div class="mt-3 ">
+                <button class="bg-blue-300 rounded-full shadow-md h-12 w-44 py-4 px-4 text-left flex items-center justify-between hover:bg-blue-500 transition-all duration-600">
+                  <span>Learn More</span>
+                  <div class="bg-black flex items-center justify-center h-8 w-8 rounded-full">
+                    <MdArrowOutward className="text-[25px] text-blue-300" />
+                  </div>
+                </button>
               </div>
-              <div class="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center space-y-4">
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 md:gap-10">
+              <div class="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center text-center space-y-4">
                 <div class="bg-blue-100 p-4 rounded-full mb-4">
-                  <i class="fas fa-wallet text-blue-700 text-2xl"></i>
+                  <FaWallet className="text-3xl text-blue-700" />
                 </div>
                 <p class="text-black font-semibold">Checking accounts</p>
               </div>
-              <div class="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center space-y-4">
+              <div class="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center text-center space-y-4">
                 <div class="bg-blue-100 p-4 rounded-full mb-4">
-                  <i class="fas fa-credit-card text-blue-700 text-2xl"></i>
+                  <FaCreditCard className="fas fa-credit-card text-blue-700 text-3xl" />
                 </div>
                 <p class="text-black font-semibold">Credit & debit cards</p>
               </div>
-            </div>
-
-            <div class="">
-              <p class="text-sm mt-5">
-                We offer a variety of tools and resources to help you
-              </p>
-              <p class="text-sm mt-1">manage your finances more efficiently</p>
-            </div>
-
-            <div class="mt-3 ">
-              <button class="bg-blue-300 rounded-full shadow-md h-10 w-40 py-4 px-4 text-left flex items-center justify-between hover:bg-blue-500 transition-all duration-600">
-                <span>Learn More</span>
-                <div class="bg-black flex items-center justify-center h-8 w-8 rounded-full">
-                  <MdArrowOutward className="text-[25px] text-blue-300" />
-                </div>
-              </button>
-            </div>
-            <div class="flex justify-center space-x-10 ml-[400px] mt-[-100px]">
-              <div class="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center space-y-4">
+              <div class="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center text-center space-y-4">
                 <div class="bg-blue-100 p-4  rounded-full mb-4">
-                  <i class="fas fa-hand-holding-usd text-blue-700 text-2xl"></i>
+                  <FaHandHoldingUsd className="fas fa-hand-holding-usd text-blue-700 text-3xl" />
                 </div>
                 <p class="text-black font-semibold">Loans and credits</p>
               </div>
-              <div class="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center space-y-4">
+              <div class="bg-white rounded-2xl shadow-lg p-5 flex flex-col items-center text-center space-y-4">
                 <div class="bg-blue-100 p-4 rounded-full mb-4">
-                  <i class="fas fa-piggy-bank text-blue-700 text-2xl"></i>
+                  <FaPiggyBank className="fas fa-piggy-bank text-blue-700 text-3xl" />
                 </div>
                 <p class="text-black font-semibold">Wealth Management</p>
               </div>
@@ -152,7 +154,7 @@ const LandingPage = () => {
         </div>
 
         {/* What makes our bank stand out */}
-        <div class="px-20 py-20 flex space-x-2 mt-[-150px]">
+        <div class="px-20 py-20 flex space-x-2 ">
           <div class="flex  flex-col justify-center items-center  h-[150px] w-[1500px] ">
             <p class="font-bold text-3xl">What makes our bank stand out</p>
             <p class="font-bold text-3xl">from the rest?</p>
@@ -221,36 +223,37 @@ const LandingPage = () => {
         </div>
 
         {/* Discover the mission & story behind our company */}
-        <div class="px-8 lg:px-20 items-center justify-center flex ">
-          <div class="bg-gray-200 p-10 rounded-lg shadow-md flex items-center ">
-            <div class="w-1/2 ">
+        <div className="px-6 md:px-12 lg:px-20 flex items-center justify-center">
+          <div className="bg-gray-200 p-6 md:p-10 rounded-lg shadow-md flex flex-col md:flex-row items-center">
+            <div className="w-full md:w-1/2 mb-6 md:mb-0">
               <img
                 src={man}
-                alt=""
-                class="rounded-lg  h-[400px] object-cover"
-                width="400"
+                alt="Discover the mission"
+                className="rounded-lg w-full h-auto max-h-[400px] object-cover"
               />
             </div>
-            <div class="w-1/2 pl-8">
-              <h1 class="text-4xl font-bold mb-4">Discover the mission &</h1>
-              <h1 class="text-4xl font-bold mb-4">story behind our company</h1>
-              <h1 class="text-4xl font-bold mb-4">company</h1>
-              <p class="text-lg mb-6">
+
+            <div className="w-full md:w-1/2 md:pl-8">
+              <h1 className="text-[4vmax] font-bold mb-4 leading-tight">
+                Discover the mission & story behind our company
+              </h1>
+              <p className="text-[14px] mb-6">
                 Discover is a US-based bank that was founded in 1985 with a
                 mission to help people achieve a brighter financial future. The
                 company was originally known as Sears Financial Network, but it
                 was later acquired by Morgan Stanley.
               </p>
-              <div class="flex space-x-4">
-                <button class="bg-black hover:bg-blue-500 transition-all duration-600  text-white rounded-full shadow-lg h-10 py-2 px-4 text-left flex items-center justify-between">
-                  <span className="mr-2">Learn More</span>
-                  <div class="bg-blue-300 flex items-center justify-center h-6 w-6 rounded-full">
-                    <MdArrowOutward className="text-[20px] text-black" />
+
+              <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+                <button className="bg-black hover:bg-blue-500 transition-all duration-300 text-white rounded-full shadow-lg py-2 px-4 flex items-center justify-center">
+                  <span className="mr-2 text-[12px]">Learn More</span>
+                  <div className="bg-blue-300 flex items-center justify-center h-6 w-6 rounded-full">
+                    <MdArrowOutward className="text-[16px] text-black" />
                   </div>
                 </button>
-                <button class="text-black px-6 py-2  flex items-center bg-blue-300 shadow-lg hover:bg-blue-500 transition-all duration-600 rounded-full">
-                  <span className="mr-2">About Us</span>
-                  <BsArrowRight className="text-[18px] font-medium" />
+                <button className="text-black px-6 py-2 flex items-center bg-blue-300 shadow-lg hover:bg-blue-500 transition-all duration-300 rounded-full">
+                  <span className="mr-2 text-[12px]">About Us</span>
+                  <BsArrowRight className="text-[16px] font-medium" />
                 </button>
               </div>
             </div>
@@ -258,156 +261,150 @@ const LandingPage = () => {
         </div>
 
         {/* Our services are designed for business of all sizes */}
-        <div class="px-20 my-6 flex flex-col space-x-2 ">
-          <div class="flex  flex-col justify-center items-center my-10 ">
-            <p class="font-bold text-3xl">Our services are designed for</p>
-            <p class="font-bold text-3xl">business of all sizes</p>
+        <div className="px-6 md:px-12 lg:px-20 my-6 space-y-10">
+  {/* Section Title */}
+  <div className="flex flex-col items-center text-center">
+    <p className="font-bold text-2xl md:text-3xl">
+      Our services are designed for
+    </p>
+    <p className="font-bold text-2xl md:text-3xl">business of all sizes</p>
+  </div>
+
+  {/* Cards Section */}
+  <div className="flex justify-center">
+    <div className="border rounded-lg shadow-md p-6 md:p-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Card 1 */}
+        <div className="relative rounded-lg overflow-hidden shadow-lg">
+          <img
+            alt="Small Business"
+            className="w-full h-[250px] md:h-[400px] object-cover"
+            src={laptop}
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 flex justify-between items-center">
+            <span className="text-white font-bold text-lg">
+              FOR SMALL BUSINESS
+            </span>
+            <div className="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
+              <FaChevronRight className="text-[18px]" />
+            </div>
           </div>
-          <div class="flex justify-center ">
-            <div class="border rounded-lg shadow-md flex items-center p-10 ">
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="relative rounded-lg overflow-hidden shadow-lg">
-                  <img
-                    alt=""
-                    class="w-full h-full object-cover"
-                    height="400"
-                    src={laptop}
-                    width="600"
-                  />
-                  <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 flex justify-between items-center">
-                    <span class="text-white font-bold text-lg">
-                      FOR SMALL BUSINESS
-                    </span>
-                    <div class="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
-                      <FaChevronRight className="text-[18px]" />
-                    </div>
-                  </div>
-                </div>
-                {/* <!-- Card 2 --> */}
-                <div class="relative rounded-lg overflow-hidden shadow-lg">
-                  <img
-                    alt=""
-                    class="w-full h-full object-cover"
-                    height="400"
-                    src={office}
-                    width="600"
-                  />
-                  <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 flex justify-between items-center">
-                    <span class="text-white font-bold text-lg">
-                      FOR STARTUPS
-                    </span>
-                    <div class="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
-                      <FaChevronRight className="text-[18px]" />
-                    </div>
-                  </div>
-                </div>
-                {/* <!-- Card 3 --> */}
-                <div class="relative rounded-lg overflow-hidden shadow-lg">
-                  <img
-                    alt=""
-                    class="w-full h-full object-cover"
-                    height="400"
-                    src={board}
-                    width="600"
-                  />
-                  <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 flex justify-between items-center">
-                    <span class="text-white font-bold text-lg">
-                      BUSINESS ENTERPRISES
-                    </span>
-                    <div class="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
-                      <FaChevronRight className="text-[18px]" />
-                    </div>
-                  </div>
-                </div>
+        </div>
+
+        {/* Card 2 */}
+        <div className="relative rounded-lg overflow-hidden shadow-lg">
+          <img
+            alt="Startups"
+            className="w-full h-[250px] md:h-[400px] object-cover"
+            src={office}
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 flex justify-between items-center">
+            <span className="text-white font-bold text-lg">FOR STARTUPS</span>
+            <div className="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
+              <FaChevronRight className="text-[18px]" />
+            </div>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className="relative rounded-lg overflow-hidden shadow-lg">
+          <img
+            alt="Business Enterprises"
+            className="w-full h-[250px] md:h-[400px] object-cover"
+            src={board}
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 flex justify-between items-center">
+            <span className="text-white font-bold text-lg">
+              BUSINESS ENTERPRISES
+            </span>
+            <div className="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
+              <FaChevronRight className="text-[18px]" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Testimonials Section */}
+  <div className="flex justify-center">
+    <div className="bg-gray-200 p-6 md:p-10 rounded-lg shadow-md">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl md:text-4xl font-bold text-black mb-8 text-center">
+          You're in good company
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Testimonial 1 */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <blockquote className="text-lg md:text-xl font-semibold mb-4">
+              “One Bank Is A Truly Great Bank”
+            </blockquote>
+            <p className="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor
+              ullamcorper mi sem porttitor vel ut quis egestas.
+            </p>
+            <div className="flex items-center">
+              <img
+                alt="Jem Smith"
+                className="w-12 h-12 rounded-full mr-4"
+                src={jem}
+              />
+              <div>
+                <p className="font-bold">Jem Smith</p>
+                <p className="text-gray-500">Head of Sales at Tesla</p>
               </div>
             </div>
           </div>
 
-          {/* We're in good company */}
-          <div class="my-6 flex justify-center ">
-            <div class="bg-gray-200 p-10 rounded-lg shadow-md flex items-center ">
-              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-black mb-12">
-                  You're in good company
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <blockquote class="text-xl font-semibold mb-4">
-                      “One Bank Is A Truly Great Bank”
-                    </blockquote>
-                    <p class="text-gray-600 mb-6">
-                      Lorem ipsum dolor sit amet consectetur dolo adipiscing
-                      elit dolor ullamcorper mi sem porttitor vel ut quis
-                      egestas mauris sapien ipsum. Lorem ipsum dolor sit amet
-                      consectetur
-                    </p>
-                    <div class="flex items-center">
-                      <img
-                        alt=""
-                        class="w-12 h-12 rounded-full mr-4"
-                        height="100"
-                        src={jem}
-                        width="100"
-                      />
-                      <div>
-                        <p class="font-bold">Jem Smith</p>
-                        <p class="text-gray-500">Head of sales at tesla</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <blockquote class="text-xl font-semibold mb-4">
-                      “You Have Found The Best Bank”
-                    </blockquote>
-                    <p class="text-gray-600 mb-6">
-                      Lorem ipsum dolor sit amet consectetur dolo adipiscing
-                      elit dolor ullamcorper mi sem porttitor vel ut quis
-                      egestas mauris sapien ipsum. Lorem ipsum dolor sit amet
-                      consectetur
-                    </p>
-                    <div class="flex items-center">
-                      <img
-                        alt=""
-                        class="w-12 h-12 rounded-full mr-4"
-                        height="100"
-                        src={adam}
-                        width="100"
-                      />
-                      <div>
-                        <p class="font-bold">Adam White</p>
-                        <p class="text-gray-500">Accountant at ozone</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <blockquote class="text-xl font-semibold mb-4">
-                      “The Best Customer Service, Period”
-                    </blockquote>
-                    <p class="text-gray-600 mb-6">
-                      Lorem ipsum dolor sit amet consectetur dolo adipiscing
-                      elit dolor ullamcorper mi sem porttitor vel ut quis
-                      egestas mauris sapien ipsum. Lorem ipsum dolor sit amet
-                      consectetur
-                    </p>
-                    <div class="flex items-center">
-                      <img
-                        alt=""
-                        class="w-12 h-12 rounded-full mr-4"
-                        height="100"
-                        src={cris}
-                        width="100"
-                      />
-                      <div>
-                        <p class="font-bold">Cris Lee</p>
-                        <p class="text-gray-500">CFO At Montee</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          {/* Testimonial 2 */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <blockquote className="text-lg md:text-xl font-semibold mb-4">
+              “You Have Found The Best Bank”
+            </blockquote>
+            <p className="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor
+              ullamcorper mi sem porttitor vel ut quis egestas.
+            </p>
+            <div className="flex items-center">
+              <img
+                alt="Adam White"
+                className="w-12 h-12 rounded-full mr-4"
+                src={adam}
+              />
+              <div>
+                <p className="font-bold">Adam White</p>
+                <p className="text-gray-500">Accountant at Ozone</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial 3 */}
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <blockquote className="text-lg md:text-xl font-semibold mb-4">
+              “The Best Customer Service, Period”
+            </blockquote>
+            <p className="text-gray-600 mb-6">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dolor
+              ullamcorper mi sem porttitor vel ut quis egestas.
+            </p>
+            <div className="flex items-center">
+              <img
+                alt="Cris Lee"
+                className="w-12 h-12 rounded-full mr-4"
+                src={cris}
+              />
+              <div>
+                <p className="font-bold">Cris Lee</p>
+                <p className="text-gray-500">CFO at Montee</p>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       </div>
       <Footer />
     </div>
