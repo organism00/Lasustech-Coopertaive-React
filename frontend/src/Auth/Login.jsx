@@ -24,18 +24,11 @@ const Login = () => {
     try {
       // API request
       const res = await axios.post(
-        'http://lasucooperative-001-site1.otempurl.com/api/Member/Login',
+        'https://cooperative.codeweborganization.com.ng/api/Member/Login',
         {
           email, // Ensure `email` and `password` are defined correctly in your component's state or scope
           password,
-        },
-        {
-          headers: {
-            Authorization: authHeader, // Pass the Basic Auth header
-            'Content-Type': 'application/json', // Ensure JSON format
-          },
-        }
-      );
+        })
   
       console.log(res.data);
       stopWaitingLoader();
