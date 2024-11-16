@@ -14,7 +14,7 @@ export const ToastProvider = ({ children }) => {
   const [waitingLoader, setWaitingLoader] = useState(false);
 
   const startWaitingLoader = () => {
-    setWaitingLoader(false)
+    setWaitingLoader(true)
   }
 
   const stopWaitingLoader = () => {

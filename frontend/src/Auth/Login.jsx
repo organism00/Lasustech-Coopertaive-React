@@ -1,12 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useToast } from '../Loaders/ToastContext';
+import WaitingLoader from '../Loaders/WaitingLoader';
 
 import logo from '../Assets/logo.png';
 import cooperative from '../Assets/cooperative.jpg'
 
 const Login = () => {
+  const { notifyError, notifySuccess, startWaitingLoader, stopWaitingLoader } = useToast()
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // console.log(email, password)
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    startWaitingLoader();
+
+    const apiUsername = 11204161;
+    const apiPassword = '60-dayfree';
+    const authHeader = `Basic ${btoa(`${apiUsername}:${apiPassword}`)}`;
+
+    try{
+      const res = await axios.post('http://lasucooperative-001-site1.otempurl.com/api/Member/Login', {
+        headers: {
+          Authorization: authHeader,
+          'Content-Type': 'application/json',
+        },
+      },
+      {
+        email,
+        password
+      })
+
+      console.log(res)
+      stopWaitingLoader();
+      // notifySuccess(res.data.message)
+    } catch (error) {
+      console.log(error)
+      stopWaitingLoader();
+      // notifyError(error.response.data.message)
+    }
+  }
   return (
     <div className="flex bg-[whitesmoke] h-[100vh] justify-center items-center">
+      <WaitingLoader/>
       <div className="bg-white h-[550px] rounded-lg lg:px-6">
         <div className="flex items-center space-x-4 p-3 justify-center">
           <img
@@ -25,7 +63,7 @@ const Login = () => {
           <p className="text-gray-400 text-[15px]">Welcome back! Please enter your login details</p>
         </div>
 
-        <form className="flex flex-col space-y-7 p-4 w-[400px]">
+        <form className="flex flex-col space-y-7 p-4 w-[400px]" action='submit' onSubmit={handleLogin}>
           <div>
             <label className="block text-sm font-medium text-gray-700" htmlFor="email">
               Email
@@ -36,6 +74,8 @@ const Login = () => {
               name="email"
               type="email"
               placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -48,6 +88,8 @@ const Login = () => {
               name="password"
               type="password"
               placeholder="Input password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="flex space-x-10 gap-16">
@@ -59,9 +101,10 @@ const Login = () => {
               Forgot Password?
             </Link>
           </div>
-          <div className="bg-blue-500 rounded-md flex items-center justify-center text-lg text-white p-1 cursor-pointer">
+          <button className="bg-blue-500 rounded-md flex items-center justify-center text-lg text-white p-1 "
+            type="submit">
             Sign in
-          </div>
+          </button>
           <div className="ml-16">
             <p className="text-gray-400 text-[15px]">
               Don't have an account?{' '}
