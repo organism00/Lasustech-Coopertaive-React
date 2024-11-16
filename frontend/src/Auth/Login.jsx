@@ -16,32 +16,38 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     startWaitingLoader();
-
-    const apiUsername = 11204161;
-    const apiPassword = '60-dayfree';
-    const authHeader = `Basic ${btoa(`${apiUsername}:${apiPassword}`)}`;
-
-    try{
-      const res = await axios.post('http://lasucooperative-001-site1.otempurl.com/api/Member/Login', {
-        headers: {
-          Authorization: authHeader,
-          'Content-Type': 'application/json',
+  
+    const apiUsername = 11204161; // Ensure this is the correct username
+    const apiPassword = '60-dayfreetrial'; // Ensure this is the correct password
+    const authHeader = `Basic ${btoa(`${apiUsername}:${apiPassword}`)}`; // Encode Basic Auth
+  
+    try {
+      // API request
+      const res = await axios.post(
+        'http://lasucooperative-001-site1.otempurl.com/api/Member/Login',
+        {
+          email, // Ensure `email` and `password` are defined correctly in your component's state or scope
+          password,
         },
-      },
-      {
-        email,
-        password
-      })
-
-      console.log(res)
+        {
+          headers: {
+            Authorization: authHeader, // Pass the Basic Auth header
+            'Content-Type': 'application/json', // Ensure JSON format
+          },
+        }
+      );
+  
+      console.log(res.data);
       stopWaitingLoader();
-      // notifySuccess(res.data.message)
+      // notifySuccess(res.data.message);
     } catch (error) {
-      console.log(error)
+      console.error('Error:', error.response ? error.response.data : error.message);
       stopWaitingLoader();
-      // notifyError(error.response.data.message)
+      // notifyError(error.response?.data?.message || "An error occurred");
     }
-  }
+  };
+  
+
   return (
     <div className="flex bg-[whitesmoke] h-[100vh] justify-center items-center">
       <WaitingLoader/>
