@@ -6,8 +6,8 @@ import cooperative from '../Assets/cooperative.jpg'
 
 const Login = () => {
   return (
-    <div className="flex bg-[whitesmoke] h-[100vh] justify-center items-center gap-10">
-      <div className="bg-white h-[550px] w-[400px] rounded-lg">
+    <div className="flex bg-[whitesmoke] h-[100vh] justify-center items-center">
+      <div className="bg-white h-[550px] rounded-lg lg:px-6">
         <div className="flex items-center space-x-4 p-3 justify-center">
           <img
             alt="Logo of Tranquility Multipurpose Cooperative Society Limited"
@@ -15,15 +15,14 @@ const Login = () => {
             src={logo}
           />
           <div>
-            <h1 className="text-xl">
-              <b>Tranquility Multipurpose Cooperative Society</b>
+            <h1 className="text-xl w-[300px]">
+              TRANQUILITY MULTIPURPOSE COOPERATIVE SOCIETY
             </h1>
           </div>
         </div>
 
-        <div className="flex flex-col items-center p-3 space-y-3 w-[400px]">
-          <p className="text-4xl font-bold">Login</p>
-          <p className="text-gray-400 text-[15px]">Welcome back! Please enter your details</p>
+        <div className="flex flex-col items-center p-3 my-6 w-[400px]">
+          <p className="text-gray-400 text-[15px]">Welcome back! Please enter your login details</p>
         </div>
 
         <form className="flex flex-col space-y-7 p-4 w-[400px]">

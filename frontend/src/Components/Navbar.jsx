@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { FaArrowRight } from "react-icons/fa";
-
 import logo from '../Assets/logo.png'
 
 function Navbar() {
@@ -31,11 +29,20 @@ function Navbar() {
               Blog
             </Link>
           </div>
-          <div className="hidden lg:flex justify-center items-center mt-3 md:mt-0">
-            <div className="bg-blue-300 h-10 w-10 border-black border-2 rounded-full"></div>
-            <div className="bg-black h-9 w-9 rounded-full p-1 -ml-2 flex justify-center items-center ">
-              <FaArrowRight className='text-white'/>
-            </div>
+
+          <div className="hidden lg:flex justify-center items-center gap-2 ">
+            <Link
+              to="/signup"
+              className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-full flex items-center"
+            >
+              Join Now
+            </Link>
+            <Link
+              to="/login"
+              className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-full flex items-center"
+            >
+              Login
+            </Link>
           </div>
         </div>
       </header>

@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import logo from "../Assets/logo.png";
 import man from "../Assets/man.jpeg";
 
@@ -64,11 +66,11 @@ const Signup = () => {
 
         <div className="flex lg:w-[450px] bg-white rounded-lg ">
           {/* Right Section */}
-          <div className="px-8 md:px-14 py-6">
+          <div className="px-8 md:px-14 py-10">
             <p className="text-2xl font-semibold">Let's get started</p>
 
             <form action="">
-              <div className="space-y-5 py-10">
+              <div className="space-y-2 py-6">
                 <div className="flex flex-row space-x-3">
                   <div>
                     <label
@@ -78,7 +80,7 @@ const Signup = () => {
                       First name
                     </label>
                     <input
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       id="first-name"
                       name="first-name"
                       type="text"
@@ -93,7 +95,7 @@ const Signup = () => {
                       Last name
                     </label>
                     <input
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       id="last-name"
                       name="last-name"
                       type="text"
@@ -128,7 +130,7 @@ const Signup = () => {
                       Country of Residence
                     </label>
                     <input
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       id="country"
                       name="country"
                       type="text"
@@ -143,7 +145,7 @@ const Signup = () => {
                       State
                     </label>
                     <input
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       id="state"
                       name="state"
                       type="text"
@@ -160,7 +162,7 @@ const Signup = () => {
                     Phone number
                   </label>
                   <input
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     id="phone"
                     name="phone"
                     type="number"
@@ -176,7 +178,7 @@ const Signup = () => {
                     Password
                   </label>
                   <input
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     id="password"
                     name="password"
                     type="password"
@@ -185,11 +187,17 @@ const Signup = () => {
                   />
                 </div>
               </div>
+              <button type="submit" className="bg-blue-400 rounded-md flex items-center justify-center w-full text-white p-1">
+                GET STARTED
+              </button>
             </form>
 
-            <div className="bg-blue-400 rounded-md flex items-center justify-center text-lg text-white p-1">
-              GET STARTED
-            </div>
+            <p className="text-center text-sm text-gray-500 mt-4">
+              Already have an account?{" "}
+              <Link to="/login" className="text-blue-500 font-medium">
+                Login
+              </Link>
+            </p>
           </div>
         </div>
       </div>
