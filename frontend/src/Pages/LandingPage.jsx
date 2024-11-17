@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   FaChevronRight,
   FaWifi,
@@ -37,7 +37,7 @@ const LandingPage = () => {
         {/* Meet the credit card of the future */}
         <div class="mx-4 md:mx-6 lg:mx-20 my-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* <!-- Image Section --> */}
-          <div class="bg-blue-300 w-full max-w-md mx-auto p-6 rounded-2xl">
+          <div class="bg-blue-400 w-full max-w-md mx-auto p-6 rounded-2xl">
             <img
               src={smiling}
               alt="Smiling person"
@@ -56,12 +56,12 @@ const LandingPage = () => {
               you need.
             </p>
             <div class="mt-6">
-              <button class="bg-white rounded-full shadow-lg w-full py-3 px-5 text-left flex items-center justify-between hover:bg-blue-100 transition-all duration-300">
-                <span>Get the App</span>
-                <div class="bg-blue-300 flex items-center justify-center h-10 w-10 rounded-full">
+              <Link to="/signup" className="bg-blue-400 rounded-full shadow-lg w-full py-3 px-5 text-left flex items-center justify-between hover:bg-black transition-all duration-300">
+                <span className="text-white font-semibold">Get Started</span>
+                <div class="bg-white flex items-center justify-center h-10 w-10 rounded-full">
                   <MdArrowOutward className="text-[25px]" />
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -75,13 +75,13 @@ const LandingPage = () => {
                   <p class="text-gray-400">Balance</p>
                   <p class="text-2xl font-semibold">$38,458.00</p>
                 </div>
-                <button class="bg-blue-300 text-black text-xs font-semibold px-3 py-1 rounded-md">
+                <button class="bg-blue-400 text-black text-xs font-semibold px-3 py-1 rounded-md">
                   SET BUDGET
                 </button>
               </div>
               <div class="mt-4 flex justify-between items-center">
                 <p class="text-gray-400 text-sm">**** **** **** 0789</p>
-                <div class="bg-blue-300 w-12 h-10 flex items-center justify-center rounded-lg">
+                <div class="bg-blue-400 w-12 h-10 flex items-center justify-center rounded-lg">
                   <FaWifi className="text-2xl h-6 w-6 text-black rotate-90" />
                 </div>
               </div>
@@ -93,7 +93,7 @@ const LandingPage = () => {
 
             {/* <!-- Statistics Card --> */}
             <div class="w-full max-w-xs md:absolute md:-top-6 md:-right-[350px] lg:static ">
-              <div class="bg-blue-300 p-6 rounded-xl flex flex-col items-center text-center">
+              <div class="bg-blue-400 p-6 rounded-xl flex flex-col items-center text-center">
                 <h1 class="font-bold text-4xl text-black">900K</h1>
                 <p class="text-black font-bold">HAPPY</p>
                 <p class="text-black font-bold">CUSTOMERS</p>
@@ -115,10 +115,10 @@ const LandingPage = () => {
               </p>
 
               <div class="mt-3 ">
-                <button class="bg-blue-300 rounded-full shadow-md h-12 w-44 py-4 px-4 text-left flex items-center justify-between hover:bg-blue-500 transition-all duration-600">
+                <button class="bg-blue-400 rounded-full shadow-md h-12 w-44 py-4 px-4 text-left flex items-center justify-between hover:bg-blue-400 transition-all duration-600">
                   <span>Learn More</span>
                   <div class="bg-black flex items-center justify-center h-8 w-8 rounded-full">
-                    <MdArrowOutward className="text-[25px] text-blue-300" />
+                    <MdArrowOutward className="text-[25px] text-blue-400" />
                   </div>
                 </button>
               </div>
@@ -245,13 +245,13 @@ const LandingPage = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-                <button className="bg-black hover:bg-blue-500 transition-all duration-300 text-white rounded-full shadow-lg py-2 px-4 flex items-center justify-center">
+                <button className="bg-black hover:bg-blue-400 transition-all duration-300 text-white rounded-full shadow-lg py-2 px-4 flex items-center justify-center">
                   <span className="mr-2 text-[12px]">Learn More</span>
-                  <div className="bg-blue-300 flex items-center justify-center h-6 w-6 rounded-full">
+                  <div className="bg-blue-400 flex items-center justify-center h-6 w-6 rounded-full">
                     <MdArrowOutward className="text-[16px] text-black" />
                   </div>
                 </button>
-                <button className="text-black px-6 py-2 flex items-center bg-blue-300 shadow-lg hover:bg-blue-500 transition-all duration-300 rounded-full">
+                <button className="text-black px-6 py-2 flex items-center bg-blue-400 shadow-lg hover:bg-blue-400 transition-all duration-300 rounded-full">
                   <span className="mr-2 text-[12px]">About Us</span>
                   <BsArrowRight className="text-[16px] font-medium" />
                 </button>
@@ -285,7 +285,7 @@ const LandingPage = () => {
             <span className="text-white font-bold text-lg">
               FOR SMALL BUSINESS
             </span>
-            <div className="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
+            <div className="bg-blue-400 flex items-center justify-center text-black rounded-full p-2">
               <FaChevronRight className="text-[18px]" />
             </div>
           </div>
@@ -300,7 +300,7 @@ const LandingPage = () => {
           />
           <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 flex justify-between items-center">
             <span className="text-white font-bold text-lg">FOR STARTUPS</span>
-            <div className="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
+            <div className="bg-blue-400 flex items-center justify-center text-black rounded-full p-2">
               <FaChevronRight className="text-[18px]" />
             </div>
           </div>
@@ -317,7 +317,7 @@ const LandingPage = () => {
             <span className="text-white font-bold text-lg">
               BUSINESS ENTERPRISES
             </span>
-            <div className="bg-blue-300 flex items-center justify-center text-black rounded-full p-2">
+            <div className="bg-blue-400 flex items-center justify-center text-black rounded-full p-2">
               <FaChevronRight className="text-[18px]" />
             </div>
           </div>

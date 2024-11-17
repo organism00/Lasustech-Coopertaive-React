@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {ToastProvider} from './Loaders/ToastContext';
 
 import LandingPage from './Pages/LandingPage';
-import SignUp from './Pages/SignUp';
-import Login from './Pages/Login';
+import Login from './Auth/Login';
+import Signup from './Auth/Signup';
 
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </Router>
     </ToastProvider>
