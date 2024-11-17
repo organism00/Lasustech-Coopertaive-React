@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useToast } from '../Loaders/ToastContext';
 import WaitingLoader from '../Loaders/WaitingLoader';
@@ -9,9 +9,9 @@ import cooperative from '../Assets/cooperative.jpg'
 
 const Login = () => {
   const { notifyError, notifySuccess, startWaitingLoader, stopWaitingLoader } = useToast()
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // console.log(email, password)
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -22,21 +22,21 @@ const Login = () => {
     // const authHeader = `Basic ${btoa(`${apiUsername}:${apiPassword}`)}`; // Encode Basic Auth
   
     try {
-      // API request
       const res = await axios.post(
-        'https://cooperative.codeweborganization.com.ng/api/Member/Login',
+        'https://lascoo.codeweborganization.com.ng/api/Member/Login',
         {
-          email, // Ensure `email` and `password` are defined correctly in your component's state or scope
+          email,
           password,
         })
   
-      console.log(res.data);
+      console.log(res.data.data);
       stopWaitingLoader();
-      // notifySuccess(res.data.message);
+      notifySuccess(res.data.responseMessage);
+      navigate('/payment', { state: res.data.data });
     } catch (error) {
-      console.error('Error:', error.response ? error.response.data : error.message);
+      console.log(error.response.data.responseMessage)
       stopWaitingLoader();
-      // notifyError(error.response?.data?.message || "An error occurred");
+      notifyError(error.response.data.responseMessage);
     }
   };
   

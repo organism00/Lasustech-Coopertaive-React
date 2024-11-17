@@ -1,21 +1,52 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useToast } from '../Loaders/ToastContext';
+import WaitingLoader from '../Loaders/WaitingLoader';
+
+import logo from '../Assets/logo.png';
 
 function PaymentInvoice() {
+  const { notifyError, notifySuccess, startWaitingLoader, stopWaitingLoader } = useToast()
+  const location = useLocation();
+  const navigate = useNavigate();
+  const user = location.state;
+  // console.log(user);
+  const date = new Date();
+
+  const makePayment = async (e) => {
+    e.preventDefault();
+    startWaitingLoader();
+    try {
+      const res = await axios.post("https://lascoo.codeweborganization.com.ng/api/Member/Initialize-Membership-Upgrade", {
+        email: user.memberId
+      });
+      console.log(res.data);
+      stopWaitingLoader();
+      notifySuccess(res.data.responseMessage);
+    } catch (error) {
+      console.log(error);
+      notifyError(error.response.data.responseMessage)
+      stopWaitingLoader();
+    }
+  }
+  
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-6">
+      <WaitingLoader/>
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6">
         {/* Invoice Section */}
         <div className="mb-8">
-          <h1 className="text-2xl font-semibold mb-4 text-gray-800">Payment Invoice</h1>
+          <h1 className="text-2xl font-semibold mb-4 text-gray-800">Member Registration Fee</h1>
           <div className="space-y-4">
             <div>
               <p className="text-gray-600 text-sm">Due Date</p>
-              <p className="font-medium text-gray-800">10th December 2024</p>
+              <p className="font-medium text-gray-800">{date.toDateString()}</p>
             </div>
             <div>
-              <p className="text-gray-600 text-sm">Billed to</p>
-              <p className="font-medium text-gray-800">John Doe</p>
-              <p className="text-gray-600 text-sm">johndoe@me.com</p>
+              <p className="text-gray-600 text-sm">Billed to {user.contactAddress}</p>
+              <p className="font-medium text-gray-800">{user.firstname} {user.lastname}</p>
+              <p className="text-gray-600 text-sm">{user.email}</p>
             </div>
             <div>
               <p className="text-gray-600 text-sm">Subject</p>
@@ -38,24 +69,12 @@ function PaymentInvoice() {
             <tbody>
               <tr>
                 <td className="p-2 border border-gray-200 flex items-center gap-2">
-                  <img src="" alt="Product" className="h-8 w-8 object-cover" />
+                  <img src={logo} alt="Product" className="h-8 w-8 object-cover" />
                   <p>One time subscription</p>
                 </td>
                 <td className="p-2 border border-gray-200">1</td>
-                <td className="p-2 border border-gray-200">$100</td>
-                <td className="p-2 border border-gray-200">$100</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-200"></td>
-                <td className="p-2 border border-gray-200"></td>
-                <td className="p-2 border border-gray-200 font-semibold">Subtotal</td>
-                <td className="p-2 border border-gray-200">$100</td>
-              </tr>
-              <tr>
-                <td className="p-2 border border-gray-200"></td>
-                <td className="p-2 border border-gray-200"></td>
-                <td className="p-2 border border-gray-200 font-semibold">Total</td>
-                <td className="p-2 border border-gray-200">$100</td>
+                <td className="p-2 border border-gray-200">₦20,000</td>
+                <td className="p-2 border border-gray-200">₦20,000</td>
               </tr>
             </tbody>
           </table>
@@ -64,64 +83,18 @@ function PaymentInvoice() {
         {/* Payment Section */}
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-4 text-gray-800">Payment Options</h2>
-          <form action="submit" className="space-y-4">
-            <div>
-              <select name="paymentMethod" id="paymentMethod" className='p-2 mb-4 border rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'>
-                <option value="selctMethod">Select Payment Method</option>
-                <option value="creditCard">Credit Card</option>
-                <option value="paystack">Paystack</option>
-              </select>
-              <label
-                htmlFor="cardNumber"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Card Number
-              </label>
-              <input
-                type="text"
-                id="cardNumber"
-                name="cardNumber"
-                className="mt-1 p-2 block w-full border rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label
-                  htmlFor="expirationDate"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Expiration Date
-                </label>
-                <input
-                  type="text"
-                  id="expirationDate"
-                  name="expirationDate"
-                  className="mt-1 p-2 block w-full border rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="cvv"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  CVV
-                </label>
-                <input
-                  type="text"
-                  id="cvv"
-                  name="cvv"
-                  className="mt-1 p-2 block w-full border rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
-              </div>
-            </div>
+          <form action="submit" className="space-y-4" onSubmit={makePayment}>
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
             >
               Pay Now
             </button>
+            <p>By clicking "Pay Now," you agree to the terms and conditions of our payment service.</p>
           </form>
         </div>
+        
+        <button onClick={() => navigate('/login')} className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Pay Later</button>
       </div>
     </div>
   );
