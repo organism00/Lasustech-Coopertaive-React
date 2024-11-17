@@ -17,9 +17,15 @@ const Login = () => {
     e.preventDefault();
     startWaitingLoader();
   
+<<<<<<< Updated upstream
     const apiUsername = 11204161; // Ensure this is the correct username
     const apiPassword = '60-dayfreetrial'; // Ensure this is the correct password
     const authHeader = `Basic ${btoa(`${apiUsername}:${apiPassword}`)}`; // Encode Basic Auth
+=======
+    // const apiUsername = 11204161; // Ensure this is the correct username
+    // const apiPassword = '60-dayfreetrial'; // Ensure this is the correct password
+    // const authHeader = `Basic ${btoa(`${apiUsername}:${apiPassword}`)}`; // Encode Basic Auth
+>>>>>>> Stashed changes
   
     try {
       // API request
@@ -75,6 +81,10 @@ const Login = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+<<<<<<< Updated upstream
+=======
+              autoComplete='email'
+>>>>>>> Stashed changes
             />
           </div>
           <div>
@@ -89,6 +99,10 @@ const Login = () => {
               placeholder="Input password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+<<<<<<< Updated upstream
+=======
+              autoComplete='current-password'
+>>>>>>> Stashed changes
             />
           </div>
           <div className="flex space-x-10 gap-16">
